@@ -17,7 +17,10 @@ export async function uploadFile(filename, localPath) {
             return null;
         }
         console.log("File uploaded to Supabase:", data);
-
+        return {
+            id: crypto.randomUUID(),
+            path: data.path,
+        };
     } catch (err) {
         console.error("uploadFile failed:", err);
         return null;
